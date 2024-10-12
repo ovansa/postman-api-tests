@@ -14,20 +14,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the code
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js (version 18.x in this case)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
 
-      # Step 3: Install Newman
       - name: Install Newman
         run: npm install -g newman
 
-      # Step 4: Run Newman tests
       - name: Run Postman tests using Newman
         run: newman run tests/reqres.postman_collection.json
+
+      - name: Run Postman tests using Newman via shell script
+        run: |
+          chmod +x run-api-tests.sh
+          ./run-api-tests.sh
