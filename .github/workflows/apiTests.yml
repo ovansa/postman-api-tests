@@ -10,6 +10,7 @@ on:
 
 jobs:
   newman-tests:
+    name: Run Postman Tests with Newman
     runs-on: ubuntu-latest
 
     steps:
@@ -29,4 +30,4 @@ jobs:
 
       # Step 4: Run Newman tests
       - name: Run Postman tests using Newman
-        run: newman run tests/reqres.postman_collection
+        run: newman run tests/reqres.postman_collection.json
